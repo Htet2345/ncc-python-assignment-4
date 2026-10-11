@@ -1,0 +1,4 @@
+/* Preserve the simple Bootstrap layout shown in the assignment video. */
+.card-header { background-color: #f8f7f9; }
+.edit-button { min-width: 60px; }
+.table th, .table td { padding: .5rem; }

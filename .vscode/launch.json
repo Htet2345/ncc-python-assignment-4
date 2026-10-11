@@ -1,0 +1,17 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Django: Student CRUD",
+      "type": "debugpy",
+      "request": "launch",
+      "python": "${workspaceFolder}/.venv/Scripts/python.exe",
+      "program": "${workspaceFolder}/run.py",
+      "args": [],
+      "django": true,
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "subProcess": true
+    }
+  ]
+}

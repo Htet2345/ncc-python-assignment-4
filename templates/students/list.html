@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="d-flex justify-content-end mb-2">
+  <a class="btn btn-primary" href="{% url 'students:create' %}">Add New</a>
+</div>
+<section class="card" aria-labelledby="list-title">
+  <div class="card-header text-center"><h1 id="list-title">Student Lists</h1></div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table align-middle">
+        <thead><tr>
+          <th scope="col">#</th><th scope="col">Name</th><th scope="col">Email</th>
+          <th scope="col">Gender</th><th scope="col">Phone</th><th scope="col" class="text-center">Options</th>
+        </tr></thead>
+        <tbody>
+          {% for student in students %}
+          <tr>
+            <td>{{ forloop.counter }}</td><td>{{ student.name }}</td><td>{{ student.email }}</td>
+            <td>{{ student.gender }}</td><td>{{ student.phone }}</td>
+            <td class="text-center text-nowrap">
+              <a class="btn btn-secondary btn-sm edit-button" href="{% url 'students:edit' student.pk %}" aria-label="Edit {{ student.name }}">Edit</a>
+              <form class="d-inline delete-form" method="post" action="{% url 'students:delete' student.pk %}">
+                {% csrf_token %}
+                <button class="btn btn-danger btn-sm" type="submit" aria-label="Delete {{ student.name }}">Delete</button>
+              </form>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+{% endblock %}
